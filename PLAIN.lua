@@ -29,7 +29,7 @@ end
 
 --width must be odd--
 function plain.start(totalWidth)
-	local ignore = {'minecraft:stone', 'minecraft:dirt', 'minecraft:gravel'}
+	local ignore = {'minecraft:stone', 'minecraft:dirt', 'minecraft:gravel', 'minecraft:flint', 'immersiveengineering:ore', 'thaumcraft:amber', 'thaumcraft:ore_cinnabar', 'minecraft:quartz', 'minecraft:netherrack'}
 
 	invHelper.provideFuel()
 
@@ -59,7 +59,9 @@ function plain.start(totalWidth)
 		for i,v in ipairs(ignore) do
 			invHelper.dropGargabe(v)
 		end
-
+		
+		invHelper.sortInv()
+		
 		r.turnRight()
 		movement.carveForward(1,2)
 
