@@ -144,7 +144,7 @@ function invHelper.sortInv()
 	for slot = r.inventorySize(), 1, -1 do
 		r.select(slot)
 		-- if the space has something in it
-		if r.count > 0 then
+		if r.count(slot) > 0 then
 			-- slot2 is set to the spot before slot 
 			for slot2 = slot - 1, 1, -1 do
 				-- compares the selected spot (spot 1) to spot 2.
