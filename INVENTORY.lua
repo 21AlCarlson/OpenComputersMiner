@@ -131,7 +131,7 @@ function invHelper.provideFuel()
 			r.select(slot)
 			-- used to make sure some coal stays in the bot. That way, it will continue to pick more up
 			count = r.count(slot)
-			if count > 16 do	
+			if count > 16 then	
 				g.insert(count - 16)
 			end
 		else
@@ -146,8 +146,8 @@ function invHelper.sortInv()
 		-- slot2 is set to the spot before slot 
 		for slot2 = slot - 1, 1, -1 do
 			-- compares the selected spot (spot 1) to spot 2.
-			if r.compareTo(slot2) do
-				if r.count(slot2) + r.count(slot) < 64 do
+			if r.compareTo(slot2) then
+				if r.count(slot2) + r.count(slot) < 64 then
 					-- if the two are the same, then transfer the slot one to slot two
 					r.transfer(slot2)
 				else 
