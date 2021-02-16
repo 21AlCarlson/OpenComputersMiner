@@ -149,11 +149,11 @@ function invHelper.sortInv()
 			if r.compareTo(slot2) then
 				if r.count(slot2) + r.count(slot) < 64 then
 					-- if the two are the same, then transfer the slot one to slot two
-					r.transfer(slot2)
+					r.transferTo(slot2)
 				else 
 					-- move only enough to make slot two full
 					itemsToMove = 64 - r.count(slot2)
-					r.transfer(slot2, itemsToMove)
+					r.transferTo(slot2, itemsToMove)
 				end
 			end
 		end
