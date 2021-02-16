@@ -143,16 +143,15 @@ end
 function invHelper.sortInv() 
 	for slot = r.inventorySize(), 1, -1 do
 		r.select(slot)
-		-- slot2 is set to the spot before slot 
-		for slot2 = slot - 1, 1, -1 do
-			-- compares the selected spot (spot 1) to spot 2.
-			if r.compareTo(slot2) then
-				if r.count(slot2) + r.count(slot) < 64 then
+		-- if the space has nothing in it
+		if r.count > 1 then
+			-- slot2 is set to the spot before slot 
+			for slot2 = slot - 1, 1, -1 do
+				-- compares the selected spot (spot 1) to spot 2.
+				if r.compareTo(slot2) then
 					-- if the two are the same, then transfer the slot one to slot two
-					r.transferTo(slot2)
-				else 
 					-- move only enough to make slot two full
-					itemsToMove = 64 - r.count(slot2)
+					itemsToMove = r.space(slot2)
 					r.transferTo(slot2, itemsToMove)
 				end
 			end
