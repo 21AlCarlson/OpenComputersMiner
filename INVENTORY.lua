@@ -11,7 +11,7 @@ end
 
 --checks if the given item is in the inventory and if yes returns the first corresponding slot
 function invHelper.containsItem(item)
-	for i=1, 16, 1 do
+	for i=1, r.inventorySize(), 1 do
 		if item == invHelper.getItemName(i) then
 			return i
 		end
@@ -80,7 +80,7 @@ end
 function invHelper.dropGargabe(item, keepN)
 	local itemStack = false
 	if keepN then
-		for i=1, robot.inventorySize(), 1 do
+		for i=1, r.inventorySize(), 1 do
 			--if the stack is not safed yet
 			if itemStack == false then
 				if invHelper.getItemName(i) == item then
@@ -98,7 +98,7 @@ function invHelper.dropGargabe(item, keepN)
 		end
 	--drop all 'item' items
 	else
-		for i=1, robot.inventorySize(), 1 do
+		for i=1, r.inventorySize(), 1 do
 			if invHelper.getItemName(i) == item then
 				r.select(i)
 				r.drop()
